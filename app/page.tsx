@@ -73,7 +73,34 @@ const ProtocolSection = () => {
   );
 };
 
+const UseCasesSection = () => {
+  const cases = [
+    { title: 'Pay-Per-Query AI', desc: 'Monetize every LLM inference instantly with sub-penny BCH settlements.', icon: Cpu },
+    { title: 'Autonomous Data Markets', desc: 'Enable agents to buy and sell datasets trustlessly using 0-conf transactions.', icon: Globe },
+    { title: 'Resource Rental Leases', desc: 'Rent GPU or compute power with time-locked covenants and automated refills.', icon: Zap },
+    { title: 'Cross-Agent Arbitrage', desc: 'High-frequency machine-to-machine commerce with zero middle-man fees.', icon: Activity },
+  ];
+
+  return (
+    <section id="use-cases" className="py-24 border-t border-white/5">
+      <SectionTitle subtitle="Applied Strategy">Economic Ecosystems</SectionTitle>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {cases.map((item, i) => (
+          <div key={i} className="terminal-card group hover:border-bch/40 transition-all">
+            <div className="w-10 h-10 rounded-xl bg-bch/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+              <item.icon className="w-5 h-5 text-bch" />
+            </div>
+            <h4 className="font-bold text-white mb-3">{item.title}</h4>
+            <p className="text-[11px] text-white/40 leading-relaxed">{item.desc}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+};
+
 const EvolutionSection = () => {
+  // ... (rest of evolution section remains same)
   const versions = [
     { v: 'v1', title: 'Simple Vault', tech: 'x402-bch Standard', desc: 'Initial alignment with standard Payment-Required headers.', icon: ShieldCheck, color: 'text-white/40' },
     { v: 'v2', title: 'Trust Layer', tech: 'Covenants & Escrow', desc: 'CashScript Covenants to enforce destination trustlessly.', icon: Lock, color: 'text-white/40' },
@@ -228,7 +255,8 @@ export default function LandingPage() {
             THE AGENTIC <br /> <span className="text-glow text-bch italic">ECONOMY.</span>
           </h1>
           <p className="text-xl text-white/40 max-w-2xl mx-auto leading-relaxed font-medium">
-            The first permissionless settlement layer for autonomous machine-to-machine commerce, powered by Bitcoin Cash Covenants.
+            The first permissionless settlement layer for autonomous machine-to-machine commerce.
+            Empowering agents to discover, negotiate, and fulfill services instantly using Bitcoin Cash.
           </p>
           <div className="flex justify-center gap-6 pt-10">
             <a href="/dashboard" className="px-10 py-5 bg-bch text-black font-black rounded-3xl hover:scale-105 transition-transform flex items-center gap-3 shadow-glow shadow-bch/20 border-b-4 border-bch-dark">
@@ -242,6 +270,7 @@ export default function LandingPage() {
 
         <div className="mt-40 space-y-32">
           <VisionSection />
+          <UseCasesSection />
           <TechnicalArchSection />
           <ProtocolSection />
           <EvolutionSection />
@@ -257,6 +286,7 @@ export default function LandingPage() {
             <span className="text-lg font-black tracking-tighter text-white">Cash<span className="text-bch">Api</span></span>
           </div>
           <p className="text-[10px] font-bold text-white/10 uppercase tracking-[0.4em]">&copy; 2026 CashApi Protocol | BCH-1 Hackcelerator | High-Frequency AI Commerce</p>
+          <a href="/middleware" className="text-[8px] font-bold text-white/5 uppercase tracking-[0.4em] hover:text-bch/20 transition-colors">Protocol Specs</a>
         </div>
       </footer>
     </div>
