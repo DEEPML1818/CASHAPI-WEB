@@ -26,8 +26,8 @@ const VisionSection = () => (
     <SectionTitle subtitle="The Mission">Revolutionizing AI Incentives</SectionTitle>
     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
       <Card>
-        <div className="w-12 h-12 rounded-2xl bg-red-500/10 flex items-center justify-center mb-6">
-          <Lock className="text-red-500 w-6 h-6" />
+        <div className="w-12 h-12 rounded-2xl bg-purple-500/10 flex items-center justify-center mb-6">
+          <Lock className="text-purple-500 w-6 h-6" />
         </div>
         <h3 className="text-2xl font-bold mb-4">The Problem: AI Silos</h3>
         <p className="text-white/50 leading-relaxed">
@@ -152,8 +152,8 @@ const TechnicalArchSection = () => (
 
       <div className="terminal-card bg-black/40">
         <div className="flex items-center gap-2 mb-4 border-b border-white/10 pb-2">
-          <Activity className="w-4 h-4 text-amber-500" />
-          <span className="text-[10px] font-black uppercase tracking-widest text-amber-500">M2M Telemetry</span>
+          <Activity className="w-4 h-4 text-purple-500" />
+          <span className="text-[10px] font-black uppercase tracking-widest text-purple-500">M2M Telemetry</span>
         </div>
         <div className="grid grid-cols-2 gap-4">
           <div className="p-3 bg-white/5 rounded-xl border border-white/5">
@@ -252,7 +252,7 @@ export default function LandingPage() {
         <div className="max-w-7xl mx-auto px-8 flex flex-col items-center gap-6">
           <div className="flex items-center gap-2">
             <div className="w-6 h-6 rounded-lg bg-bch flex items-center justify-center">
-              <Coins className="text-black w-3 h-3" />
+              <Coins className="text-white w-3 h-3" />
             </div>
             <span className="text-lg font-black tracking-tighter text-white">Cash<span className="text-bch">Api</span></span>
           </div>

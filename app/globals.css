@@ -3,11 +3,11 @@
 @theme {
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-  /* Primary: rich amber/gold — "digital gold" payment protocol feel */
-  --color-bch: #f59e0b;
-  --color-bch-dark: #d97706;
-  /* Accent: electric violet — premium, futuristic */
-  --color-cyber: #a78bfa;
+  /* Primary: modern purple — "premium" AI feel */
+  --color-bch: #a855f7;
+  --color-bch-dark: #7e22ce;
+  /* Accent: electric fuchsia — futuristic */
+  --color-cyber: #e879f9;
   --color-dark-surface: #0a090c;
   --color-dark-edge: #14121a;
 }
@@ -35,11 +35,11 @@
 }
 
 @utility text-glow {
-  text-shadow: 0 0 16px rgba(245, 158, 11, 0.5), 0 0 40px rgba(245, 158, 11, 0.15);
+  text-shadow: 0 0 16px rgba(168, 85, 247, 0.5), 0 0 40px rgba(168, 85, 247, 0.15);
 }
 
 @utility border-glow {
-  box-shadow: 0 0 24px rgba(245, 158, 11, 0.2), 0 0 60px rgba(245, 158, 11, 0.05);
+  box-shadow: 0 0 24px rgba(168, 85, 247, 0.2), 0 0 60px rgba(168, 85, 247, 0.05);
 }
 
 @utility bg-grid {
@@ -73,14 +73,14 @@
 .bg-mesh {
   background-color: #06050a;
   background-image:
-    radial-gradient(at 0% 0%, hsla(38, 92%, 50%, 0.06) 0, transparent 55%),
-    radial-gradient(at 50% 0%, hsla(265, 80%, 60%, 0.04) 0, transparent 55%),
-    radial-gradient(at 100% 0%, hsla(38, 92%, 50%, 0.06) 0, transparent 55%),
-    radial-gradient(at 50% 100%, hsla(265, 60%, 40%, 0.04) 0, transparent 55%);
+    radial-gradient(at 0% 0%, hsla(270, 91%, 65%, 0.06) 0, transparent 55%),
+    radial-gradient(at 50% 0%, hsla(280, 80%, 60%, 0.04) 0, transparent 55%),
+    radial-gradient(at 100% 0%, hsla(270, 91%, 65%, 0.06) 0, transparent 55%),
+    radial-gradient(at 50% 100%, hsla(280, 60%, 40%, 0.04) 0, transparent 55%);
 }
 
 .terminal-card {
   @apply glass rounded-2xl p-6 relative overflow-hidden;
   background: linear-gradient(135deg, rgba(22, 18, 35, 0.7) 0%, rgba(10, 9, 14, 0.85) 100%);
-  border-color: rgba(245, 158, 11, 0.08);
+  border-color: rgba(168, 85, 247, 0.08);
 }

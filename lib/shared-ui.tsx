@@ -35,7 +35,7 @@ export const Header = () => {
             <div className="max-w-7xl mx-auto w-full flex items-center justify-between">
                 <a href="/" className="flex items-center gap-2 group cursor-pointer">
                     <div className="w-10 h-10 rounded-2xl bg-bch flex items-center justify-center border-glow group-hover:rotate-12 transition-transform">
-                        <Coins className="text-black w-6 h-6" />
+                        <Coins className="text-white w-6 h-6" />
                     </div>
                     <span className="text-2xl font-black tracking-tighter text-white">
                         Cash<span className="text-bch">Api</span>
