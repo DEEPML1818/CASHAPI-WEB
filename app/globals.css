@@ -60,14 +60,27 @@
   animation: scanline 10s linear infinite;
 }
 
-@keyframes scanline {
+@keyframes marquee {
   0% {
-    bottom: 100%;
+    transform: translateX(0);
   }
 
   100% {
-    bottom: -100px;
+    transform: translateX(-50%);
   }
+}
+
+@utility animate-marquee {
+  animation: marquee 30s linear infinite;
+}
+
+@utility noise-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  pointer-events: none;
+  opacity: 0.05;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3%3Cfilter id='noiseFilter'%3%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3%3C/filter%3%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3%3C/svg%3");
 }
 
 .bg-mesh {

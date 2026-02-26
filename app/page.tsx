@@ -14,7 +14,8 @@ import {
   ArrowRight,
   ChevronRight,
   CheckCircle2,
-  Wallet
+  Wallet,
+  ShieldAlert
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Card, SectionTitle, Header } from '@/lib/shared-ui';
@@ -93,6 +94,61 @@ const UseCasesSection = () => {
             <h4 className="font-bold text-white mb-3">{item.title}</h4>
             <p className="text-[11px] text-white/40 leading-relaxed">{item.desc}</p>
           </div>
+        ))}
+      </div>
+    </section>
+  );
+};
+
+const SecurityMarquee = () => {
+  const events = [
+    "PROTOCOL_HANDSHAKE: VALIDATED",
+    "ECIES_SESSION: ENCRYPTED",
+    "BLOCKCHAIN_TX: 0-CONF_VERIFIED",
+    "AGENT_IDENTITY: SECP256K1_MATCH",
+    "UTXO_PROOF: SUCCESS",
+    "M2M_CONTRACT: ATOMIC_LOCKED",
+    "THREAT_SCORE: 0.00 (SECURE)",
+  ];
+
+  return (
+    <div className="py-4 border-y border-bch/10 bg-bch/5 overflow-hidden flex whitespace-nowrap">
+      <div className="flex gap-12 animate-marquee shrink-0">
+        {[...events, ...events, ...events].map((event, i) => (
+          <div key={i} className="flex items-center gap-2">
+            <ShieldCheck className="w-3 h-3 text-bch" />
+            <span className="text-[10px] font-mono text-bch/60 uppercase tracking-widest">{event}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+const SecurityManifesto = () => {
+  const specs = [
+    { title: "Covenant Enforcement", desc: "CashScript contracts lock funds until the Agent provides a valid ECIES-signed fulfillment proof.", tech: "OP_CHECKDATASIG" },
+    { title: "Point-to-Point E2EE", desc: "Direct machine-to-machine encrypted sessions using Payer's public key (Secp256k1).", tech: "AES-256-GCM" },
+    { title: "Atomic Fulfilment", desc: "Data is only released once the 402 Settlement is detected in the memory pool.", tech: "DS-Proof Enabled" },
+    { title: "Sovereign Settlement", desc: "No middle-man. No counterparty risk. Pure permissionless commerce across borders.", tech: "P2SH-Vaults" },
+  ];
+
+  return (
+    <section id="security" className="py-24 relative overflow-hidden">
+      <div className="absolute top-0 right-0 w-96 h-96 bg-bch/5 rounded-full blur-[120px] -z-10" />
+      <SectionTitle subtitle="Technical Fortification">Security Manifesto</SectionTitle>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {specs.map((spec, i) => (
+          <Card key={i} className="relative group overflow-hidden">
+            <div className="flex items-start justify-between mb-6">
+              <div className="p-3 rounded-2xl bg-white/5 text-white group-hover:bg-bch/10 group-hover:text-bch transition-colors">
+                <ShieldAlert className="w-6 h-6" />
+              </div>
+              <span className="text-[9px] font-mono text-white/20 uppercase tracking-tighter group-hover:text-bch/40">{spec.tech}</span>
+            </div>
+            <h3 className="text-xl font-bold mb-3">{spec.title}</h3>
+            <p className="text-sm text-white/40 leading-relaxed font-medium">{spec.desc}</p>
+          </Card>
         ))}
       </div>
     </section>
@@ -247,10 +303,22 @@ export default function LandingPage() {
       </div>
 
       <main className="pt-48 px-8 max-w-7xl mx-auto text-center relative z-10">
-        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="space-y-10">
-          <div className="inline-flex items-center gap-2 glass px-4 py-2 rounded-full border-white/10 text-bch text-[10px] font-black uppercase tracking-[0.3em] bg-bch/5">
-            <Zap className="w-3 h-3 fill-bch" /> x402-v2 Protocol Active
+        <div className="noise-overlay" />
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          className="space-y-10"
+        >
+          <div className="inline-flex items-center gap-4">
+            <div className="px-4 py-2 glass rounded-full border-white/10 text-bch text-[10px] font-black uppercase tracking-[0.3em] bg-bch/5 flex items-center gap-2">
+              <Zap className="w-3 h-3 fill-bch" /> Protocol Active
+            </div>
+            <div className="px-4 py-2 glass rounded-full border-bch/20 text-white text-[10px] font-black uppercase tracking-[0.3em] bg-white/5 flex items-center gap-2">
+              <ShieldCheck className="w-3 h-3 text-bch" /> Security: AAA+
+            </div>
           </div>
+
           <h1 className="text-7xl md:text-[140px] font-black tracking-tighter leading-[0.85] text-white">
             THE AGENTIC <br /> <span className="text-glow text-bch italic">ECONOMY.</span>
           </h1>
@@ -268,12 +336,32 @@ export default function LandingPage() {
           </div>
         </motion.div>
 
-        <div className="mt-40 space-y-32">
-          <VisionSection />
-          <UseCasesSection />
-          <TechnicalArchSection />
-          <ProtocolSection />
-          <EvolutionSection />
+        <div className="mt-40 space-y-40">
+          <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ amount: 0.3 }} transition={{ duration: 0.8 }}>
+            <VisionSection />
+          </motion.div>
+
+          <SecurityMarquee />
+
+          <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ amount: 0.3 }} transition={{ duration: 0.8 }}>
+            <UseCasesSection />
+          </motion.div>
+
+          <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ amount: 0.3 }} transition={{ duration: 0.8 }}>
+            <SecurityManifesto />
+          </motion.div>
+
+          <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ amount: 0.3 }} transition={{ duration: 0.8 }}>
+            <TechnicalArchSection />
+          </motion.div>
+
+          <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ amount: 0.3 }} transition={{ duration: 0.8 }}>
+            <ProtocolSection />
+          </motion.div>
+
+          <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ amount: 0.3 }} transition={{ duration: 0.8 }}>
+            <EvolutionSection />
+          </motion.div>
         </div>
       </main>
 

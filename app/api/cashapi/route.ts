@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 
 const MERCHANT_ADDRESS = process.env.CASHAPI_MERCHANT_ADDRESS || 'bchtest:qpqu57emm855p4jcx08daj5caehv74226qj5u437en';
-const PRICE_SATS = 546;
+const PRICE_SATS = 1200;
 const NETWORK = 'chipnet';
 const OPENROUTER_API_KEY = process.env.NEXT_PUBLIC_OPENROUTER_API_KEY || '';
 

@@ -127,9 +127,9 @@ export default function DashboardPage() {
     const [encryptedBlob, setEncryptedBlob] = useState('');
     const [userQuery, setUserQuery] = useState('');
     const [agents, setAgents] = useState([
-        { id: 1, name: 'Alpha-Trader', task: 'Sentiment Analysis', price: '500 sats', rental: '1,200/hr', icon: Cpu, color: 'text-bch', reputation: 98, sustainability: 88, security: 'E2EE (ECIES)' },
-        { id: 2, name: 'DevBot-Pro', task: 'Code Review', price: '1,200 sats', rental: '2,500/hr', icon: Terminal, color: 'text-cyber', reputation: 92, sustainability: 45, security: 'E2EE (ECIES)' },
-        { id: 3, name: 'Vision-Lite', task: 'Image Tagging', price: '100 sats', rental: '300/hr', icon: Eye, color: 'text-purple-400', reputation: 85, sustainability: 65, security: 'Standard' },
+        { id: 1, name: 'Alpha-Trader', task: 'Sentiment Analysis', price: '1,800 sats', rental: '3,200/hr', icon: Cpu, color: 'text-bch', reputation: 98, sustainability: 88, security: 'E2EE (ECIES)' },
+        { id: 2, name: 'DevBot-Pro', task: 'Code Review', price: '2,700 sats', rental: '5,000/hr', icon: Terminal, color: 'text-cyber', reputation: 92, sustainability: 45, security: 'E2EE (ECIES)' },
+        { id: 3, name: 'Vision-Lite', task: 'Image Tagging', price: '1,200 sats', rental: '2,000/hr', icon: Eye, color: 'text-purple-400', reputation: 85, sustainability: 65, security: 'Standard' },
     ]);
 
     useEffect(() => {
@@ -186,7 +186,7 @@ export default function DashboardPage() {
         setWalletOpen(false);
         addLog(`[Wallet] Reconstructing chipnet wallet from seed...`);
 
-        const price = selectedAgent ? parseInt(selectedAgent.price.replace(/[^0-9]/g, '')) : 546;
+        const price = selectedAgent ? parseInt(selectedAgent.price.replace(/[^0-9]/g, '')) : 1200;
 
         // Generate encrypted blob for the visualizer
         const mockBlob = Array.from({ length: 64 }, () => Math.floor(Math.random() * 16).toString(16)).join('');
