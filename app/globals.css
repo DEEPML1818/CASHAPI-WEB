@@ -1,0 +1,86 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  /* Primary: rich amber/gold — "digital gold" payment protocol feel */
+  --color-bch: #f59e0b;
+  --color-bch-dark: #d97706;
+  /* Accent: electric violet — premium, futuristic */
+  --color-cyber: #a78bfa;
+  --color-dark-surface: #0a090c;
+  --color-dark-edge: #14121a;
+}
+
+:root {
+  --background: #06050a;
+  --foreground: #f0eefa;
+  --glass: rgba(18, 15, 28, 0.5);
+  --glass-border: rgba(255, 255, 255, 0.06);
+}
+
+@layer base {
+  body {
+    background: var(--background);
+    color: var(--foreground);
+    @apply antialiased overflow-x-hidden;
+  }
+}
+
+@utility glass {
+  background: var(--glass);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.03);
+}
+
+@utility text-glow {
+  text-shadow: 0 0 16px rgba(245, 158, 11, 0.5), 0 0 40px rgba(245, 158, 11, 0.15);
+}
+
+@utility border-glow {
+  box-shadow: 0 0 24px rgba(245, 158, 11, 0.2), 0 0 60px rgba(245, 158, 11, 0.05);
+}
+
+@utility bg-grid {
+  background-size: 40px 40px;
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+}
+
+@utility scanline {
+  width: 100%;
+  height: 100px;
+  z-index: 100;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0) 0%, rgba(255, 255, 255, 0.025) 50%, rgba(0, 0, 0, 0) 100%);
+  opacity: 0.12;
+  position: absolute;
+  bottom: 100%;
+  animation: scanline 10s linear infinite;
+}
+
+@keyframes scanline {
+  0% {
+    bottom: 100%;
+  }
+
+  100% {
+    bottom: -100px;
+  }
+}
+
+.bg-mesh {
+  background-color: #06050a;
+  background-image:
+    radial-gradient(at 0% 0%, hsla(38, 92%, 50%, 0.06) 0, transparent 55%),
+    radial-gradient(at 50% 0%, hsla(265, 80%, 60%, 0.04) 0, transparent 55%),
+    radial-gradient(at 100% 0%, hsla(38, 92%, 50%, 0.06) 0, transparent 55%),
+    radial-gradient(at 50% 100%, hsla(265, 60%, 40%, 0.04) 0, transparent 55%);
+}
+
+.terminal-card {
+  @apply glass rounded-2xl p-6 relative overflow-hidden;
+  background: linear-gradient(135deg, rgba(22, 18, 35, 0.7) 0%, rgba(10, 9, 14, 0.85) 100%);
+  border-color: rgba(245, 158, 11, 0.08);
+}
